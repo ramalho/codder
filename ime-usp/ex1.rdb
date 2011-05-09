@@ -1,0 +1,20 @@
+@filme(titulo/char,nome_do_diretor/char,genero/char):titulo
+'Central do Brasil','Walter Salles','drama'
+'Tropa de Elite','José Padilha','drama'
+'1941','Steven Spielberg','comédia'
+'O Bem Amado','Guel Arraes','comédia'
+'O Beijo da Mulher Aranha','Hector Babenco','drama'
+'Indiana Jones e os caçadores da Arca Perdida','Steven Spielberg','aventura'
+'De Pernas pro Ar','Roberto Santucci','comédia'
+'A Lista de Schindler','Steven Spielberg','drama'
+'O Retorno do Rei','Peter Jackson','aventura'
+
+@diretor(nome/char,pais/char):nome
+'Guel Arraes','BR'
+'Hector Babenco','AR'
+'Walter Salles','BR'
+'Peter Jackson','NZ'
+'Roberto Santucci','BR'
+'José Padilha','BR'
+'Steven Spielberg','US'
+

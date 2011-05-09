@@ -1,0 +1,65 @@
+%---------------------------------------------------------------------
+%
+%  MAC 5760 - Bancos de dados
+%  IME-USP - Primeiro Semestre de 2011
+%
+%  Consultas em na linguagem: Cálculo Relacional de Tuplas
+%
+%  Lista 1
+%
+%  Luciano Gama de Sousa Ramalho    n.usp 1002101
+%  Data de entrega: 2011-04-04
+%
+%---------------------------------------------------------------------
+% Exercício 1
+%
+% filme(titulo, nome_do_diretor, genero)    key: titulo
+% diretor(nome, pais)               key: nome
+%---------------------------------------------------------------------
+% 1. Obter os diretores do filme “Central do Brasil”
+
+qDirCentral := { F.nome_do_diretor |
+    filme(F) and F.titulo = 'Central do Brasil' };
+
+% 2. Obter os nomes dos diretores brasileiros que fizeram algum filme
+%    cujo gênero é “comédia”.'
+
+qDirBras := { D.nome | diretor(D) and D.pais = 'BR' };
+
+qDirBrasComedia := { F.nome_do_diretor | filme(F) and
+                        (exists D)(qDirBras(D) and
+                                F.nome_do_diretor = D.nome and
+                                F.genero = 'comédia')};
+
+qFinger1 := { F.nome_do_diretor | filme(F) and
+                        (exists D)(diretor(D) and D.pais = 'BR' and
+                                F.nome_do_diretor = D.nome and
+                                F.genero = 'comédia')};
+
+qColega1 := { F.nome_do_diretor | filme(F) and
+                                F.genero = 'comédia' and
+                                (exists D)(diretor(D) and D.pais = 'BR' and
+                                F.nome_do_diretor = D.nome)};
+
+
+% 3. Obter os nomes dos diretores que não fizeram nenhum filme no gênero
+%    “aventura”.
+
+% qFinger := {F.nome_do_diretor | filme(F) and
+%    not(exists H)(filme(H) and H.genero="aventura" and 
+%                         F.nome_do_diretor = H.nome_do_diretor)}
+%
+% qFinger2 = {F.nome_do_diretor | filme(F) and
+%    (every H)(filme(H) and H.genero='aventura' => F.nome_do_diretor}
+%
+
+% 4. Obter os nomes dos diretores que fizeram pelo menos um filme de
+%    cada gênero presente na tabela FILME.
+
+% qFinger40 = {F.nome_do_diretor | filme(F) and 
+%            (every H)( (filme(H) F.nome_do_diretor = H.nome_do_diretor) => (exists G)(filme(G) and G.genero = H.genero) and G.nome_do_diretor)
+%
+% select nome_do_diretor  from filme f where (
+%     select 
+%          select f.genero from filme
+%

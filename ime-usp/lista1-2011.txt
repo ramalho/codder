@@ -1,0 +1,29 @@
+IME/USP
+MAC426 – Lista de Exercícios: Consultas ao modelo relacional
+Prof. Marcelo Finger
+Primeiro Semestre de 2011
+
+Exercício 1
+
+Considere os seguintes esquemas:
+
+FILME(Título, Nome do Diretor, Gênero)
+
+DIRETOR(Nome, Nacionalidade)
+
+Assuma que títulos identificam univocamente filmes e nomes identificam
+univocamente diretores. Suponha também que cada filme tem exatamente
+um diretor. Expresse cada uma das consultas abaixo em álgebra
+relacional, em cálculo relacional de domínio e tuplas, em Datalog e em
+SQL:
+
+1. Obter os diretores do filme “Central do Brasil”.
+
+2. Obter os nomes dos diretores brasileiros que fizeram algum filme cujo
+gênero é “comé́dia”.
+
+3. Obter os nomes dos diretores que não fizeram nenhum filme no gênero
+“aventura”.
+
+4. Obter os nomes dos diretores que fizeram pelo menos um filme de cada
+gênero presente na tabela FILME.

@@ -1,0 +1,42 @@
+%---------------------------------------------------------------------
+%
+%  MAC 5760 - Bancos de dados
+%  IME-USP - Primeiro Semestre de 2011
+%
+%  Consultas em na linguagem: Cálculo Relacional de Domínio
+%
+%  Lista 1
+%
+%  Luciano Gama de Sousa Ramalho    n.usp 1002101
+%  Data de entrega: 2011-04-04
+%
+%---------------------------------------------------------------------
+% Exercício 1
+%
+% filme(titulo, nome_do_diretor, genero)    key: titulo
+% diretor(nome, pais)               key: nome
+%---------------------------------------------------------------------
+% 1. Obter os diretores do filme “Central do Brasil”
+
+qDirCentral := { Nome_do_diretor |
+    filme('Central do Brasil', Nome_do_diretor, _)};
+
+% 2. Obter os nomes dos diretores brasileiros que fizeram algum filme
+%    cujo gênero é “comédia”.'
+
+qDirBras := { Nome | diretor(Nome, 'BR') };
+
+qDirBrasComedia := { Nome_do_diretor |
+                        (exists Nome)(
+                            qDirBras(Nome) and
+                            filme(_, Nome_do_diretor, 'comédia') and
+                            Nome = Nome_do_diretor)};
+
+% 3. Obter os nomes dos diretores que não fizeram nenhum filme no gênero
+%    “aventura”.
+
+
+
+
+% 4. Obter os nomes dos diretores que fizeram pelo menos um filme de
+%    cada gênero presente na tabela FILME.
